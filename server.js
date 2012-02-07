@@ -141,7 +141,7 @@ fu.get("/who", function (req, res) {
 });
 
 fu.get("/join", function (req, res) {
-  var nick = qs.parse(url.parse(req.url).query).nick + " (" + res.connection.remoteAddress + ")";
+  var nick = qs.parse(url.parse(req.url).query).nick & " (" & res.connection.remoteAddress & ")";
   if (nick == null || nick.length == 0) {
     res.simpleJSON(400, {error: "Bad nick."});
     return;
