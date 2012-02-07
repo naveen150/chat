@@ -147,7 +147,7 @@ fu.get("/join", function (req, res) {
     return;
   }
 
-  var session = createSession(nick + '-');
+  var session = createSession(nick + ' (' + res.connection.remoteAddress + ')');
   if (session == null) {
     res.simpleJSON(400, {error: "Nick in use"});
     return;
