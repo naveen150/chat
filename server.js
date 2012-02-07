@@ -205,6 +205,6 @@ fu.get("/send", function (req, res) {
 
   session.poke();
 
-  channel.appendMessage(session.nick + '(' + res.connection.remoteAddress + ')', "msg", text);
+  channel.appendMessage(session.nick + ' (' + req.connection.remoteAddress + ')', "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
