@@ -205,6 +205,14 @@ fu.get("/send", function (req, res) {
 
   session.poke();
 
-  channel.appendMessage(session.nick + ' (' + req.connection.remoteAddress + ')', "msg", text);
+  var ip_address = null;
+  try {
+    ip_address = req.headers['x-forwarded-for'];
+  }
+  catch ( error ) {
+    ip_address = req.connection.remoteAddress;
+  }
+
+  channel.appendMessage(session.nick + ' (' + ip_address + ')', "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
