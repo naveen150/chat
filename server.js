@@ -146,6 +146,9 @@ fu.get("/join", function (req, res) {
     res.simpleJSON(400, {error: "Bad nick."});
     return;
   }
+
+  nick = nick + " (" + res.connection.remoteAddress + ")";
+
   var session = createSession(nick);
   if (session == null) {
     res.simpleJSON(400, {error: "Nick in use"});
