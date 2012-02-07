@@ -147,7 +147,7 @@ fu.get("/join", function (req, res) {
     return;
   }
 
-  var session = createSession(nick + res.connection.remoteAddress);
+  var session = createSession(nick);
   if (session == null) {
     res.simpleJSON(400, {error: "Nick in use"});
     return;
@@ -205,6 +205,6 @@ fu.get("/send", function (req, res) {
 
   session.poke();
 
-  channel.appendMessage(session.nick, "msg", text);
+  channel.appendMessage(session.nick + '(' + res.connection.remoteAddress + ')', "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
