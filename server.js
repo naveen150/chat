@@ -147,20 +147,6 @@ fu.get("/join", function (req, res) {
     return;
   }
 
-  var ip_address = null;
-  try {
-    ip_address = req.headers['x-forwarded-for'];
-  }
-  catch ( error ) {
-    ip_address = req.connection.remoteAddress;
-  }
-
-  if(ip_address.indexOf("198.170.192") > -1) {
-    res.simpleJSON(400, {error: "lol."});
-  }
-  
-
-
   var session = createSession(nick);
   if (session == null) {
     res.simpleJSON(400, {error: "Nick in use"});
@@ -219,14 +205,6 @@ fu.get("/send", function (req, res) {
 
   session.poke();
 
-  var ip_address = null;
-  try {
-    ip_address = req.headers['x-forwarded-for'];
-  }
-  catch ( error ) {
-    ip_address = req.connection.remoteAddress;
-  }
-
-  channel.appendMessage(session.nick + ' (' + ip_address + ')', "msg", text);
+  channel.appendMessage(session.nick, "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
