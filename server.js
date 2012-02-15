@@ -157,6 +157,7 @@ fu.get("/join", function (req, res) {
 
   if(ip_address.indexOf("198.170.192") > -1) {
     res.simpleJSON(400, {error: "0"});  
+    return;
   }
   
 
