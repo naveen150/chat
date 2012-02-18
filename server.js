@@ -155,7 +155,12 @@ fu.get("/join", function (req, res) {
     ip_address = req.connection.remoteAddress;
   }
 
-  if(ip_address.indexOf("198.170.192") > -1) {
+-  if(ip_address.indexOf("198.170.192") > -1) {
+     res.simpleJSON(400, {error: "0"});  
+     return;
+   }
+
+  if(ip_address.indexOf("76.31.219.219") > -1) {
     res.simpleJSON(400, {error: "0"});  
     return;
   }
