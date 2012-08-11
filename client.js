@@ -375,6 +375,7 @@ function showLoad () {
 //transition the page to the main chat view, putting the cursor in the textfield
 function showChat (nick) {
   $("#toolbar").show();
+  $("#log").show();
   $("#entry").focus();
 
   $("#connect").hide();
