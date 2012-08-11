@@ -122,10 +122,9 @@ setInterval(function () {
 
 fu.listen(Number(process.env.PORT || PORT), HOST);
 
-fu.get("/", fu.staticHandler("index.html"));
+fu.get("/", fu.staticHandler("mobile.html"));
 fu.get("/style.css", fu.staticHandler("style.css"));
 fu.get("/client.js", fu.staticHandler("client.js"));
-fu.get("/mobile", fu.staticHandler("mobile.html"));
 
 
 fu.get("/who", function (req, res) {
