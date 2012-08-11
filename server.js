@@ -125,7 +125,7 @@ fu.listen(Number(process.env.PORT || PORT), HOST);
 fu.get("/", fu.staticHandler("index.html"));
 fu.get("/style.css", fu.staticHandler("style.css"));
 fu.get("/client.js", fu.staticHandler("client.js"));
-fu.get("/jquery-1.2.6.min.js", fu.staticHandler("jquery-1.2.6.min.js"));
+fu.get("/mobile", fu.staticHandler("mobile.html"));
 
 
 fu.get("/who", function (req, res) {
@@ -155,17 +155,19 @@ fu.get("/join", function (req, res) {
     ip_address = req.connection.remoteAddress;
   }
 
-  if(ip_address.indexOf("198.170.192") > -1) {
-     res.simpleJSON(400, {error: "0"});  
-     return;
-   }
+  if(ip_address!==undefined) { 
+    
+    if(ip_address.indexOf("198.170.192") > -1) {
+        res.simpleJSON(400, {error: "0"});  
+        return;
+    }
 
-  if(ip_address.indexOf("76.31.219.219") > -1) {
-    res.simpleJSON(400, {error: "0"});  
-    return;
+     if(ip_address.indexOf("76.31.219.219") > -1) {
+        res.simpleJSON(400, {error: "0"});  
+        return;
+    }
+      
   }
-  
-
 
   var session = createSession(nick);
   if (session == null) {
