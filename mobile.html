@@ -14,7 +14,7 @@
 
 <div data-role="page">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<h1>chat</h1>
 	</div><!-- /header -->
 
@@ -53,8 +53,10 @@
 
 	</div><!-- /content -->
 
-    <div data-role="footer" class="ui-bar" style="display:none" id="toolbar" data-position="fixed" data-fullscreen="true">    
-        <input tabindex="1" type="text" id="entry"/>
+    <div data-role="footer" class="ui-bar" style="display:none" id="toolbar" data-position="fixed" >    
+        <div data-role="fieldcontain">
+            <input tabindex="1" type="text" id="entry"/>        
+        </div>
     </div>
 
     
