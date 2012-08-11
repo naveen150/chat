@@ -183,7 +183,20 @@ util = {
 
 //used to keep the most recent messages visible
 function scrollDown () {
-  window.scrollBy(0, 100000000000000000);
+//  window.scrollBy(0, 100000000000000000);
+  
+  var targetOffset = $("#log").offset().top;
+  // Prevent jump-down
+    event.preventDefault();
+
+    // Animate to target
+    $("#log").animate({scrollTop: targetOffset}, 400, function() {
+
+        // Set hash in URL after animation successful
+        //location.hash = target;
+
+    });
+  
   $("#entry").focus();
 }
 
