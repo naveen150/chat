@@ -228,7 +228,7 @@ function addMessage (from, text, time, _class) {
 
   var content = '<tr>'
               + '  <td class="date">' + util.timeString(time) + '</td>'
-              + '  <td class="nick">' + util.toStaticHTML(from) + '</td>'
+              + '  <td class="nick"><b>' + util.toStaticHTML(from) + '</b></td>'
               + '  <td class="msg-text">' + text  + '</td>'
               + '</tr>'
               ;
@@ -376,9 +376,9 @@ function showChat (nick) {
 //we want to show a count of unread messages when the window does not have focus
 function updateTitle(){
   if (CONFIG.unread) {
-    document.title = "(" + CONFIG.unread.toString() + ") node chat";
+    document.title = "(" + CONFIG.unread.toString() + ") CHAT";
   } else {
-    document.title = "node chat";
+    document.title = "CHAT";
   }
 }
 
