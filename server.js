@@ -234,6 +234,6 @@ fu.get("/send", function (req, res) {
     ip_address = req.connection.remoteAddress;
   }
 
-  channel.appendMessage(session.nick + ' (' + ip_address + ')', "msg", text);
+  channel.appendMessage(session.nick, "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
